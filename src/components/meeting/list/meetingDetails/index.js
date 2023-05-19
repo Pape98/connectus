@@ -1,22 +1,20 @@
-import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
-import { connect, useSelector } from "react-redux";
+import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
+import { connect, useSelector } from 'react-redux';
 
-import Actions from "../actions";
-import { Employee } from "../../..";
-import { meetingActions } from "../../../../state/actions";
-import { ROUTES } from "../../../../constants";
-import { formatTime } from "../../../../utils";
-import "./style.scss";
+import Actions from '../actions';
+import { Employee } from '../../..';
+import { meetingActions } from '../../../../state/actions';
+import './style.scss';
 
 const Placeholder = () => {
   return (
-    <div className="segment" id="placeholder-meetingDetails">
-      <div className="ui fluid placeholder">
-        <div className="paragraph">
-          <div className="full line"></div>
-          <div className="full line"></div>
-          <div className="full line"></div>
+    <div className='segment' id='placeholder-meetingDetails'>
+      <div className='ui fluid placeholder'>
+        <div className='paragraph'>
+          <div className='full line'></div>
+          <div className='full line'></div>
+          <div className='full line'></div>
         </div>
       </div>
     </div>
@@ -24,13 +22,11 @@ const Placeholder = () => {
 };
 
 const MeetingDetails = ({ meeting, setCurrentMeeting }) => {
-  const { id, meeting_date, title, recipient_id, created_by } = meeting;
+  const { id, recipient_id, created_by } = meeting;
   const [isLoading, setIsLoading] = useState(true);
   const history = useHistory();
-  const meetingLink = `${ROUTES.CLIENT.MEETINGS}/${id}`;
-  const time = formatTime(meeting_date);
 
-  const currentUserId = useSelector((state) => state.user.profile.id);
+  const currentUserId = useSelector(state => state.user.profile.id);
 
   const userToFetch =
     currentUserId === recipient_id ? created_by : recipient_id;
@@ -42,23 +38,23 @@ const MeetingDetails = ({ meeting, setCurrentMeeting }) => {
 
   const onClickHandler = () => {
     setCurrentMeeting(meeting);
-    history.push(meetingLink);
+    history.push('/meetings/1');
   };
 
   if (!isLoading) {
     return (
-      <div className="segment meeting" id="meeting-segment">
-        <div className="meeting__item meeting__time" onClick={onClickHandler}>
+      <div className='segment meeting' id='meeting-segment'>
+        <div className='meeting__item meeting__time' onClick={onClickHandler}>
           <div>
-            <i className="clock outline icon"></i>
-            {time}
+            <i className='clock outline icon'></i>
+            19:00
           </div>
         </div>
-        <div className="meeting__employee" onClick={onClickHandler}>
-          <Employee.Info className="meeting__item" employeeId={userToFetch} />
+        <div className='meeting__employee' onClick={onClickHandler}>
+          <Employee.Info className='meeting__item' employeeId={userToFetch} />
         </div>
-        <div className="meeting__item meeting__title" onClick={onClickHandler}>
-          <div className="ui  label">{title}</div>
+        <div className='meeting__item meeting__title' onClick={onClickHandler}>
+          <div className='ui label'>Example meeting</div>
         </div>
         <Actions meetingId={id} />
       </div>
@@ -68,9 +64,9 @@ const MeetingDetails = ({ meeting, setCurrentMeeting }) => {
   }
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
-    setCurrentMeeting: (meeting) => {
+    setCurrentMeeting: meeting => {
       dispatch(meetingActions.setCurrentMeeting(meeting));
     },
   };

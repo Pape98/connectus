@@ -1,63 +1,36 @@
-import React, { useEffect, useState } from "react";
-import { connect } from "react-redux";
+import React from 'react';
+import { connect } from 'react-redux';
 
-import { Accordion, ReadOnly } from "../../";
-import { noteActions } from "../../../state/actions";
-import Note from "../note";
-import "./style.scss";
+import { Accordion, ReadOnly } from '../../';
+import { noteActions } from '../../../state/actions';
+import Note from '../note';
+import './style.scss';
 
-const Section = (props) => {
-  const {
-    accessToken,
-    createNote,
-    icon,
-    meetingId,
-    title,
-    notes: propNotes,
-    fetchAllNotes,
-    readOnly,
-  } = props;
-
-  const [notes, setNotes] = useState([]);
-
-  useEffect(() => setNotes(propNotes), [propNotes]);
-
-  useEffect(() => {
-    if (meetingId !== undefined) fetchAllNotes(meetingId);
-  }, []);
-
-  useEffect(() => {
-    if (meetingId !== undefined) fetchAllNotes(meetingId);
-  }, [accessToken]);
-
-  useEffect(() => {
-    if (meetingId !== undefined) fetchAllNotes(meetingId);
-  }, [meetingId]);
+const Section = props => {
+  const { createNote, icon, meetingId, title, readOnly } = props;
 
   const handleAddNewItem = async () => {
     createNote(meetingId);
   };
 
-  const renderedNotes = Array.isArray(notes)
-    ? notes.map((note) => {
-        return <Note key={note.id} note={note} meetingId={meetingId} />;
-      })
-    : [];
+  const renderedNotes = [1, 2, 3].map(note => {
+    return <Note key={note.id} note={note} meetingId={meetingId} />;
+  });
 
-  const hideAddItemClass = readOnly ? "notes__add-item--hidden" : "";
+  const hideAddItemClass = readOnly ? 'notes__add-item--hidden' : '';
 
   return (
     <Accordion title={title} icon={icon}>
       <ReadOnly readOnly={readOnly}>
-        {" "}
-        <div className="section__notes">
+        {' '}
+        <div className='section__notes'>
           {renderedNotes}
           <div
             className={`notes__add-item ${hideAddItemClass}`}
             onClick={handleAddNewItem}
           >
             Add Item
-            <i className="plus icon"></i>
+            <i className='plus icon'></i>
           </div>
         </div>
       </ReadOnly>
@@ -65,7 +38,7 @@ const Section = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   const {
     note: { notes },
     user: { accessToken },
@@ -73,12 +46,12 @@ const mapStateToProps = (state) => {
   return { notes, accessToken };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
-    createNote: (newNote) => {
+    createNote: newNote => {
       dispatch(noteActions.createNote(newNote));
     },
-    fetchAllNotes: (meetingId) => {
+    fetchAllNotes: meetingId => {
       dispatch(noteActions.fetchAllNotes(meetingId));
     },
   };

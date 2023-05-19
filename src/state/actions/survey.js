@@ -2,7 +2,6 @@ import { toast } from "react-toastify";
 
 import { ActionTypes, meetingActions, navigationActions } from "../actions";
 import { surveyService, meetingService } from "../../services";
-import { formatDate } from "../../utils";
 import { isAccessTokenEmpty } from "../../utils";
 
 export const createSurvey = (meeting) => async (dispatch, getState) => {
@@ -35,9 +34,9 @@ export const createSurvey = (meeting) => async (dispatch, getState) => {
     if (survey.followUp) {
       const { meetingDate, meetingTime } = survey;
       const newMeeting = {
-        meetingDate: new Date(meetingDate + "T" + meetingTime).toUTCString(),
+        meetingDate: new Date(meetingDate + 'T' + meetingTime).toUTCString(),
         createdBy: selected.id,
-        title: `General Check-in (${formatDate("MM-DD-YYYY", meetingDate)})`,
+        title: `General Check-in (12/22/1998)`,
         // Add the id of other recipient based on current user
         recipientId:
           selected.id === meeting.recipient_id

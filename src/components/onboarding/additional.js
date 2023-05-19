@@ -1,27 +1,30 @@
-import React from "react";
-import { reduxForm } from "redux-form";
+import React from 'react';
+import { reduxForm } from 'redux-form';
+import { Link } from 'react-router-dom';
 
-import { employeeActions } from "../../state/actions";
-import { Button } from "../";
-import { PreferenceComponents } from "./questions";
-import { PROFILE_SURVEY } from "../../constants";
+import { employeeActions } from '../../state/actions';
+import { Button } from '../';
+import { PreferenceComponents } from './questions';
+import { PROFILE_SURVEY } from '../../constants';
 
-const Additional = (props) => {
+const Additional = props => {
   const { handleSubmit, previousPage } = props;
 
   return (
-    <form onSubmit={handleSubmit} className="ui large form">
+    <form onSubmit={handleSubmit} className='ui large form'>
       <PreferenceComponents
-        label="Any other personal details you’d like to share?"
-        rows="5"
-        name="personalDetailsText"
+        label='Any other personal details you’d like to share?'
+        rows='5'
+        name='personalDetailsText'
       />
 
-      <div className="onboarding__buttons">
-        <div className="previousButton" onClick={previousPage}>
+      <div className='onboarding__buttons'>
+        <div className='previousButton' onClick={previousPage}>
           Previous
         </div>
-        <Button.Base classname="baseButton--submit" text="Submit" />
+        <Link to='/loading'>
+          <Button.Base classname='baseButton--submit' text='Submit' />
+        </Link>
       </div>
     </form>
   );

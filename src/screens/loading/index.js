@@ -10,11 +10,11 @@ import { useHistory } from 'react-router-dom';
 import './style.scss';
 import { Redirect } from '../../components';
 
-const Loading = ({ user, setIsNewUser, isNewUser }) => {
+const Loading = ({ user }) => {
   const userExists = has(user, 'id');
   const history = useHistory();
 
-  const handleRedirect = async param => {
+  const handleRedirect = async () => {
     if (user) {
       history.push({
         pathname: ROUTES.CLIENT.HOME,

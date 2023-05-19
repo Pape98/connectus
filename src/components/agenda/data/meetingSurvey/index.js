@@ -1,85 +1,55 @@
-import React, { useEffect, useState } from "react";
-import { connect } from "react-redux";
-import { ReactSVG } from "react-svg";
+import React from 'react';
+import { connect } from 'react-redux';
 
-import { surveyActions } from "../../../../state/actions";
-import { Survey } from "../../../../constants";
-import isEmpty from "lodash/isEmpty";
+import { surveyActions } from '../../../../state/actions';
 
-import "./style.scss";
+import './style.scss';
 
-const NoSurvey = () => {
+// Displays filled out survey for viewonly
+const MeetingSurvey = () => {
   return (
-    <div className="noSurvey__container">
-      <ReactSVG src="undraw_empty.svg" />
-      <p>No notes</p>
-    </div>
+    <table className='ui very basic padded collapsing celled table'>
+      <tbody>
+        <tr>
+          <td>
+            <div>Reaction</div>
+          </td>
+          <td>
+            <div className='ui label'>Happy</div>
+          </td>
+        </tr>
+        <tr>
+          <td>Professional Observations</td>
+          <td>
+            Sed vitae risus odio. Maecenas gravida velit ex, vel sollicitudin
+            diam ornare in. Fusce efficitur ante mi, eget placerat libero
+            ultrices in. Nullam accumsan rutrum enim at lacinia.
+          </td>
+        </tr>
+        <tr>
+          <td>Personal Observations</td>
+          <td>
+            Vivamus aliquet pulvinar sagittis. Aliquam convallis nisi vitae
+            bibendum vestibulum. Curabitur vehicula varius faucibus. Suspendisse
+            elit libero, pellentesque eu urna a, euismod porttitor ex. Phasellus
+            ac enim sit amet purus pharetra facilisis id non urna.
+          </td>
+        </tr>
+      </tbody>
+    </table>
   );
 };
 
-// Displays filled out survey for viewonly
-const MeetingSurvey = ({
-  meetingId,
-  surveyType,
-  newSurvey,
-  oldSurvey,
-  fetchNewSurvey,
-  fetchOldSurvey,
-}) => {
-  const [survey, setSurvey] = useState({});
-
-  useEffect(() => {
-    if (surveyType === Survey.NEW) setSurvey(newSurvey);
-    else if (surveyType === Survey.OLD) setSurvey(oldSurvey);
-  });
-
-  useEffect(() => {
-    fetchNewSurvey(meetingId);
-  }, []);
-
-  useEffect(() => {
-    fetchOldSurvey(meetingId);
-  }, []);
-
-  if (!isEmpty(survey) && survey) {
-    return (
-      <table className="ui very basic padded collapsing celled table">
-        <tbody>
-          <tr>
-            <td>
-              <div>Reaction</div>
-            </td>
-            <td>
-              <div className="ui label">
-                {survey.reaction === "sad" ? "Not sure" : survey.reaction}{" "}
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>Professional Observations</td>
-            <td>{survey.professional_observations}</td>
-          </tr>
-          <tr>
-            <td>Personal Observations</td>
-            <td>{survey.personal_observations}</td>
-          </tr>
-        </tbody>
-      </table>
-    );
-  }
-  return <NoSurvey />;
-};
-
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
-    fetchOldSurvey: (meetingId) =>
+    fetchOldSurvey: meetingId =>
       dispatch(surveyActions.fetchOldSurvey(meetingId)),
-    fetchNewSurvey: (meetingId) =>
+    fetchNewSurvey: meetingId =>
       dispatch(surveyActions.fetchNewSurvey(meetingId)),
   };
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   const {
     survey,
     user: { profile },

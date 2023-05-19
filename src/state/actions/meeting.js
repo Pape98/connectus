@@ -4,7 +4,6 @@ import { ActionTypes } from "../actions";
 import { meetingService } from "../../services";
 import { noteActions } from "./";
 import { isAccessTokenEmpty } from "../../utils";
-import { formatDate } from "../../utils";
 import { NOTES } from "../../constants";
 
 export const clearCurrentMeeting = () => (dispatch) => {
@@ -41,7 +40,7 @@ export const createMeeting = async (dispatch, getState) => {
     const newMeeting = {
       meetingDate,
       createdBy: user.id,
-      title: `${title.value} (${formatDate("MM-DD-YYYY", new Date(date))})`,
+      title: `${title.value} (12/22/1998)`,
       recipientId: employee ? employee.value.employee : user.superior_id,
       active: true,
       isFinishedRecipient: false,

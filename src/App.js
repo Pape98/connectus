@@ -1,22 +1,16 @@
-import React, { useEffect } from "react";
+/* eslint-disable no-unused-vars */
+import React, { useEffect } from 'react';
 
 import {
   BrowserRouter as Router,
   Route,
   Switch,
   useParams,
-} from "react-router-dom";
-import { connect } from "react-redux";
-import {
-  MsalAuthenticationTemplate,
-  AuthenticatedTemplate,
-  useIsAuthenticated,
-  UnauthenticatedTemplate,
-} from "@azure/msal-react";
-import { InteractionType } from "@azure/msal-browser";
-
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.min.css";
+} from 'react-router-dom';
+import { connect } from 'react-redux';
+import { useIsAuthenticated } from '@azure/msal-react';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 import {
   Agenda,
@@ -32,19 +26,18 @@ import {
   NotFound,
   Profile,
   Terms,
-} from "./screens";
+} from './screens';
 
 import {
   employeeActions,
   meetingActions,
   userActions,
   navigationActions,
-} from "./state/actions";
-import { useGetToken } from "./hooks";
-import { Navigation, Meeting } from "./components";
-import { SCOPES, ROUTES } from "./constants";
-import { loginRequest } from "./config/authentication";
-import "./App.scss";
+} from './state/actions';
+import { useGetToken } from './hooks';
+import { Navigation, Meeting } from './components';
+import { SCOPES, ROUTES } from './constants';
+import './App.scss';
 
 const SingleMeeting = () => {
   let { id } = useParams();
@@ -52,10 +45,6 @@ const SingleMeeting = () => {
 };
 
 const Menus = () => {
-  // const currentPath = window.location.pathname;
-  // const routes = Object.values(ROUTES.CLIENT);
-  // if (!routes.includes(currentPath)) return null;
-
   return (
     <>
       <Navigation.Sidebar />
@@ -68,43 +57,48 @@ const Menus = () => {
 const PrivateRoutes = () => {
   return (
     <Switch>
-      <MsalAuthenticationTemplate
-        interactionType={InteractionType.Redirect}
-        authenticationRequest={loginRequest}
-      >
-        <Menus />
-        <div className="content">
+      <div>
+        <div className='content'>
           <ToastContainer
             autoClose={4000}
             closeOnClick
             draggable
             pauseOnHover
           />
+
           <Route exact path={ROUTES.CLIENT.HOME}>
+            <Menus />
             <Home />
           </Route>
           <Route exact path={ROUTES.CLIENT.PROFILE}>
+            <Menus />
             <Profile />
           </Route>
           <Route exact path={ROUTES.CLIENT.MEETINGS}>
+            <Menus />
             <Meetings />
           </Route>
           <Route exact path={ROUTES.CLIENT.EMPLOYEES}>
+            <Menus />
             <Employees />
           </Route>
-          <Route exact path={ROUTES.CLIENT.MEETINGS + "/:id"}>
+          <Route exact path={ROUTES.CLIENT.MEETINGS + '/:id'}>
+            <Menus />
             <SingleMeeting />
           </Route>
         </div>
-        <Route exact path={ROUTES.CLIENT.HISTORY}>
-          <History />
-        </Route>
-      </MsalAuthenticationTemplate>
+        <div style={{ paddingLeft: '15vw' }}>
+          <Route exact path={ROUTES.CLIENT.HISTORY}>
+            <Menus />
+            <History />
+          </Route>
+        </div>
+      </div>
     </Switch>
   );
 };
 
-const App = (props) => {
+const App = props => {
   const {
     fetchEmployee,
     fetchEmployees,
@@ -120,83 +114,69 @@ const App = (props) => {
 
   const employeeExists = selected.error === undefined;
 
-  useEffect(() => {
-    if (isAuthenticated) {
-      fetchUserProfile();
-      if (employeeExists) {
-        fetchEmployee(profile.id);
-      } else {
-        fetchEmployees();
-      }
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (isAuthenticated) {
+  //     fetchUserProfile();
+  //     if (employeeExists) {
+  //       fetchEmployee(profile.id);
+  //     } else {
+  //       fetchEmployees();
+  //     }
+  //   }
+  // }, []);
 
-  useEffect(() => {
-    if (isNewUser) {
-      const path = window.location.pathname;
-      if (path !== ROUTES.CLIENT.ONBOARDING) {
-        redirectTo(ROUTES.CLIENT.ONBOARDING);
-      }
-    }
-  });
+  // useEffect(() => {
+  //   if (isNewUser) {
+  //     const path = window.location.pathname;
+  //     if (path !== ROUTES.CLIENT.ONBOARDING) {
+  //       redirectTo(ROUTES.CLIENT.ONBOARDING);
+  //     }
+  //   }
+  // });
 
-  useEffect(() => {
-    if (isAuthenticated) {
-      fetchUserProfile();
-    }
-  }, [accessToken, graphToken]);
+  // useEffect(() => {
+  //   if (isAuthenticated) {
+  //     fetchUserProfile();
+  //   }
+  // }, [accessToken, graphToken]);
 
-  useEffect(() => {
-    if (isAuthenticated && employeeExists) {
-      fetchEmployee(profile.id);
-    }
+  // useEffect(() => {
+  //   if (isAuthenticated && employeeExists) {
+  //     fetchEmployee(profile.id);
+  //   }
 
-    !employeeExists && fetchEmployees();
-  }, [profile]);
+  //   !employeeExists && fetchEmployees();
+  // }, [profile]);
 
   return (
     <Router>
       <Switch>
         <Route exact path={ROUTES.CLIENT.LOGIN}>
-          {" "}
-          <UnauthenticatedTemplate>
-            <Login />
-          </UnauthenticatedTemplate>
+          {' '}
+          <Login />
         </Route>
         <Route exact path={ROUTES.CLIENT.ONBOARDING}>
-          <MsalAuthenticationTemplate
-            interactionType={InteractionType.Redirect}
-            authenticationRequest={loginRequest}
-          >
-            <Onboarding />
-          </MsalAuthenticationTemplate>
+          <Onboarding />
         </Route>
         <Route exact path={ROUTES.CLIENT.ERROR}>
-          <AuthenticatedTemplate>
-            <Error />
-          </AuthenticatedTemplate>
+          <Error />
         </Route>
         <Route exact path={ROUTES.CLIENT.LOADING}>
-          <AuthenticatedTemplate>
-            <Loading />
-          </AuthenticatedTemplate>
+          <Loading />
         </Route>
         <Route exact path={ROUTES.CLIENT.TERMS}>
-          <MsalAuthenticationTemplate
-            interactionType={InteractionType.Redirect}
-            authenticationRequest={loginRequest}
-          >
-            <Terms />
-          </MsalAuthenticationTemplate>
+          <Terms />
         </Route>
         <Route exact path={ROUTES.CLIENT.MESSAGE}>
-          <MsalAuthenticationTemplate
-            interactionType={InteractionType.Redirect}
-            authenticationRequest={loginRequest}
-          >
-            <Message />
-          </MsalAuthenticationTemplate>
+          <Message />
         </Route>
+        {/* <div className='content'>
+          <Route exact path={ROUTES.CLIENT.HOME}>
+            <Menus />
+            <Home />
+          </Route>
+        </div> */}
+
         <Route component={PrivateRoutes} />
         <Route component={NotFound} />
       </Switch>
@@ -204,7 +184,7 @@ const App = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   const {
     user: { profile },
     employee: { selected },
@@ -214,14 +194,14 @@ const mapStateToProps = (state) => {
   return { profile, selected, isNewUser };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
-    fetchAllMeetings: (id) => dispatch(meetingActions.fetchAllMeetings(id)),
+    fetchAllMeetings: id => dispatch(meetingActions.fetchAllMeetings(id)),
     fetchEmployees: () => dispatch(employeeActions.fetchEmployees()),
-    fetchEmployee: (employeeId) =>
+    fetchEmployee: employeeId =>
       dispatch(employeeActions.fetchEmployee(employeeId)),
     fetchUserProfile: () => dispatch(userActions.fetchUserProfile),
-    redirectTo: (path) => dispatch(navigationActions.redirect(path)),
+    redirectTo: path => dispatch(navigationActions.redirect(path)),
   };
 };
 

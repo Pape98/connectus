@@ -1,26 +1,28 @@
-import React from "react";
+import React from 'react';
 import {
   useMsal,
   AuthenticatedTemplate,
   UnauthenticatedTemplate,
-} from "@azure/msal-react";
+} from '@azure/msal-react';
 
-import Base from "../base";
-import { loginRequest, logoutRequest } from "../../../config/authentication";
-import { connect } from "react-redux";
-import { meetingActions } from "../../../state/actions";
+import Base from '../base';
+import { loginRequest, logoutRequest } from '../../../config/authentication';
+import { connect } from 'react-redux';
+import { meetingActions } from '../../../state/actions';
+import { Link } from 'react-router-dom';
 
 const Authentication = () => {
   const { instance } = useMsal();
 
   const SignInButton = () => {
     return (
-      <Base
-        text="Sign in with Microsoft"
-        icon="microsoft"
-        classname="baseButton--login"
-        onClickHandler={() => signInClickHandler(instance)}
-      />
+      <Link to='/terms'>
+        <Base
+          text='Click here to demo'
+          icon='microsoft'
+          classname='baseButton--login'
+        />
+      </Link>
     );
   };
 
@@ -28,14 +30,16 @@ const Authentication = () => {
     return <li onClick={() => signOutClickHandler(instance)}>Logout</li>;
   };
 
-  const signInClickHandler = async (instance) => {
-    instance.loginRedirect(loginRequest).catch((e) => { // Lets user select an account
+  // eslint-disable-next-line no-unused-vars
+  const signInClickHandler = async instance => {
+    instance.loginRedirect(loginRequest).catch(e => {
+      // Lets user select an account
       console.error(e);
     });
   };
 
-  const signOutClickHandler = (instance) => {
-    instance.logoutRedirect(logoutRequest).catch((e) => {
+  const signOutClickHandler = instance => {
+    instance.logoutRedirect(logoutRequest).catch(e => {
       console.error(e);
     });
   };
@@ -52,7 +56,7 @@ const Authentication = () => {
   );
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
     clearUserProfile: () => {
       dispatch(meetingActions.clearUserProfile());

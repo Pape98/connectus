@@ -1,18 +1,18 @@
-import React, { useState, useRef } from "react";
-import { useClickAway } from "react-use";
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import React, { useState, useRef } from 'react';
+import { useClickAway } from 'react-use';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
-import { ROUTES } from "../../../../constants";
-import { Button, Employee } from "../../../";
-import "./style.scss";
+import { ROUTES } from '../../../../constants';
+import { Employee } from '../../../';
+import './style.scss';
 
 const ProfileMenu = () => {
   const [openProfileMenu, setOpenProfileMenu] = useState(false);
-  const employee = useSelector((state) => state.employee.selected);
+  const employee = useSelector(state => state.employee.selected);
   const ref = useRef(null);
   const iconClickHandler = () => {
-    console.log("lol");
+    console.log('lol');
     setOpenProfileMenu(!openProfileMenu);
   };
 
@@ -21,37 +21,36 @@ const ProfileMenu = () => {
   });
 
   const profileMenuList = () => {
-    const openCloseClass = openProfileMenu ? "visible" : "hidden";
+    const openCloseClass = openProfileMenu ? 'visible' : 'hidden';
     return (
       <div
         ref={ref}
         className={`profileMenu__container profileMenu--${openCloseClass}`}
       >
-        <div id="profileMenu__segment" className="segment">
-          <ul className="profileMenu__list">
-            <li>{employee.first_name + " " + employee.last_name}</li>{" "}
+        <div id='profileMenu__segment' className='segment'>
+          <ul className='profileMenu__list'>
+            <li>John Smith</li>{' '}
             <Link
               to={ROUTES.CLIENT.MEETINGS}
               onClick={() => setOpenProfileMenu(false)}
             >
-              {" "}
+              {' '}
               <li>Meetings</li>
             </Link>
             <Link
               to={ROUTES.CLIENT.HISTORY}
               onClick={() => setOpenProfileMenu(false)}
             >
-              {" "}
+              {' '}
               <li>History</li>
             </Link>
             <Link
               to={ROUTES.CLIENT.PROFILE}
               onClick={() => setOpenProfileMenu(false)}
             >
-              {" "}
+              {' '}
               <li>Profile</li>
             </Link>
-            <Button.Authentication />
           </ul>
         </div>
       </div>
@@ -60,12 +59,9 @@ const ProfileMenu = () => {
 
   return (
     <>
-      <Employee.ProfileImage
-        onClick={iconClickHandler}
-        employee={employee}
-      />
-      <div className="profileMenu">
-        <i className="down angle large icon" onClick={iconClickHandler}></i>
+      <Employee.ProfileImage onClick={iconClickHandler} employee={employee} />
+      <div className='profileMenu'>
+        <i className='down angle large icon' onClick={iconClickHandler}></i>
         {profileMenuList()}
       </div>
     </>
