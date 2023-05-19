@@ -1,0 +1,75 @@
+.note {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    font-size: 14px;
+    padding: 20px 0px;
+    border-bottom: 1px solid #E6E7E9;
+    font-weight: 500;
+}
+
+.note__content {
+    flex:0.90;
+}
+
+.note__content > span {
+    font-size: 14px;
+    padding-left: 10px;
+}
+
+.note__buttons i {
+    margin-left: 15px;
+    visibility: hidden;
+}
+
+.content__author {
+    display: inline;
+    font-weight: 400;
+    font-size: 20px;
+    font-size: 14px;
+    line-height: 18.2px;
+    color: rgba(24, 24, 25, 0.7);
+}
+
+.content__author u {
+    font-weight: 500;
+    line-height: 16.8px;
+    font-size: 12px;
+}
+
+.content_text {
+    margin-bottom: 6px;
+}
+
+
+.note:hover {
+    .note__buttons i {
+        visibility: visible;
+    }
+}
+
+.note--highlighted {
+    background: rgba(72, 202, 228, 0.055);
+}
+
+.note__checkbox .checkbox {
+    margin-left: 10px;
+}
+
+.content__addTime {
+    font-weight: 400;
+}
+
+.note__trash--hidden {
+    display: none;
+}
+
+.editable__text {
+    font-size: 14px;
+}
+
+
+
+
+

@@ -1,0 +1,10 @@
+.employee__simpleCard {
+    .segment {
+        padding: 15px;
+        border-right: 1.5px solid rgba(72, 202, 228, 0.9)
+    }
+
+    :hover {
+        cursor: pointer;
+    }
+}

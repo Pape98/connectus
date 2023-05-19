@@ -1,0 +1,32 @@
+.dates-container {
+    display: flex;
+    justify-content: flex-end;
+    flex: 1
+}
+
+.dates { 
+    display: grid;
+    font-family: 'Inter', sans-serif;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 0px 0;
+    color: rgba(24, 24, 25, 0.9);
+    flex: 0.40;
+}
+
+.dates__item {
+   padding: 10px; 
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   font-weight: 500;
+}
+
+.dates__item:hover {
+    cursor: pointer;
+}
+
+.dates__item:nth-child(1) {
+    color: #5acfe7;
+    border-bottom: 1px solid #5acfe7;
+    box-shadow: inset 0px -2px 0px #5ACFE6;
+}

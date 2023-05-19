@@ -1,0 +1,37 @@
+#terms {
+    menu {
+        height: 7vh;
+        background-color: #0077B6;
+        position: fixed;
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+    }
+
+    #content {
+        padding: 10vh 0 3vh 0;
+    }
+
+    img {
+        padding: 10px;
+        height: 7vh;
+        width: auto;
+    }
+
+    span {
+        color: "#0077B6"
+    }
+
+    .button__container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding-bottom: 4vh ;
+        align-items: center;
+        flex-direction: column;
+
+        button {
+            background-color: #0077B6;
+        }
+    }
+}

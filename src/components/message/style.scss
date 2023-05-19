@@ -1,0 +1,22 @@
+#message-segment {
+    height: 5vh;
+    width: 100%;
+    background-color: rgba(0, 189, 203, 0.15);
+    padding: 0 ;
+    display: flex;
+    align-items: center;
+    justify-content: space-around; 
+    margin-bottom: 3vh;
+}
+
+.message__text {
+    flex: 0.96;
+}
+
+.message--hidden {
+    display: none;
+}
+
+.message--visible {
+    display: block;
+}

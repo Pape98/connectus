@@ -1,0 +1,27 @@
+.accordion {
+    margin: 2vh 4vw;
+    border: 1px solid #E6E7E9;
+    border-radius: 4px;
+}
+
+#material-accordion {
+     box-shadow: none !important;
+}
+
+.accordion__title {
+    max-height: 20px !important;
+}
+
+.section__title {
+    display: flex;
+    align-items: center;
+}
+
+.title__text {
+    padding-left: 10px;
+    font-weight: 500;
+}
+
+.MuiAccordionDetails-root {
+    display: block !important;
+}

@@ -1,0 +1,36 @@
+.section__notes {
+    width: 100%;
+    padding: 0 34px;
+
+    .notes__add-item {
+        height: 64px;
+        width: 100%;
+        border: 1px dashed #E6E7E9;
+        border-radius: 8px;
+        margin: 20px 0;
+        color: rgba(72, 202, 228, 0.9);
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .notes__add-item:hover{
+        cursor: pointer;
+    }
+
+    .notes__add-item > i {
+        margin: 0 20px 0 10px;
+    }
+
+    .notes__add-item--hidden {
+        display: none
+    }
+    
+}
+
+
+
+
+
+
+

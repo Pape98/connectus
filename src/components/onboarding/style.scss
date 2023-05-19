@@ -1,0 +1,20 @@
+.previousButton{
+    background-color: rgba(86, 87, 88, 0.04);
+    color: rgba(24, 24, 25, 0.9);
+    width: 136px;
+    height: 35px;
+    display: flex;
+    border-radius: 4px;
+    align-items: center;
+    justify-content: center;
+    font-family: Inter;
+    font-style: normal;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-right: 15px;
+    font-size: 14px;
+}
+
+.previousButton:hover {
+        cursor: pointer;
+    }

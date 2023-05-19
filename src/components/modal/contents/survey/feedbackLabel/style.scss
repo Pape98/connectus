@@ -1,0 +1,33 @@
+.feedback-label{
+    display: flex;
+    font-size: 12px;
+    align-items: center;
+    border: 1px solid #E6E7E9;
+    border-radius: 100px;
+    margin-right: 20px;
+
+    .label__128578 {
+        content : "\1F600" !important;
+        height: 10px;
+        width: 10px;
+    }
+}
+
+.feedback-label__emoji {
+    // font-size: 18px;
+    margin-right: 5px;
+    padding-left: 3px;
+}
+
+.feedback-label__text {
+    padding-right: 5px
+}
+
+.feedback-label:hover {
+    cursor: pointer;
+    background-color: rgba(0, 189, 203, 0.04);
+}
+
+.feedback-label--highlighted {
+    background-color: rgba(72, 202, 228, 0.4);
+}

@@ -1,0 +1,48 @@
+.baseButton {
+    height: 35px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Inter;
+    font-style: normal;
+    width: 100%;
+    border: 0;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.baseButton:hover {
+    cursor: pointer;
+}
+
+.baseButton i { 
+    color: white;
+    padding-right: 35px;
+}
+
+.baseButton__text {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.baseButton--submit {
+    background:  rgba(72, 202, 228, 1);
+    color: white;
+    width: 136px;
+}
+
+.baseButton--show {
+    background:  rgba(72, 202, 228, 1);
+    color: white;
+    width: 100%;
+}
+
+.baseButton--login {
+    background:  rgba(72, 202, 228, 1);
+    color: white;
+}
+
+.baseButton--submit:hover {
+    background:  rgba(72, 202, 228, 0.9);
+}

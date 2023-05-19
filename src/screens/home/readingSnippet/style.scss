@@ -1,0 +1,40 @@
+.snippet {
+    padding-bottom: 3vh;
+}
+
+.snippet p {
+  color: rgba(24, 24, 25, 0.7);
+}
+
+.snippet__header {
+  font-weight: 600;
+}
+
+.link__text {
+    padding-right: 10px;
+} 
+
+.snippet__read-more {
+  display: flex;
+  align-items: center;
+  font-family: Inter;
+  font-weight: 500;
+  color: rgba(72, 202, 228, 1);
+
+  :hover {
+    color: rgba(72, 202, 228, 0.8);
+  }
+}
+
+@media screen and (max-width: 1366px) {
+  .snippet {
+    padding: 2vh 0 !important;
+  }
+}
+
+.snippet {
+    padding-bottom: 3vh;
+    padding-left: 50px;
+}
+
+

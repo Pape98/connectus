@@ -1,0 +1,79 @@
+
+.employee-info {
+    display: flex;
+    position: relative;
+
+    :hover {
+        cursor: pointer;
+    }
+
+    .summaryProfileCard {
+        position: absolute;
+        top: 40px;
+        bottom: 0;
+        border: 0px white!important;
+        z-index: 100;
+        box-shadow: 0px 1px 18px -2px rgba(86, 87, 88, 0.18), 0px 2px 5px -1px rgba(86, 87, 88, 0.16);
+        filter: drop-shadow(0px 2px 10px rgba(86, 87, 88, 0.3)); 
+        width: 18vw;
+        
+        .dates__container {
+            display: flex;
+            gap: 40px
+        }
+
+        .interests__container {
+            display: flex !important;
+            gap: 7px !important;
+            flex-direction: column;
+
+            > .label {
+                width: 100% !important;
+            }
+        }
+        
+        .segment {
+           display: flex;
+           flex-direction: column;
+           gap: 12px;
+
+           .text {
+               color:rgba(72, 202, 228, 1)
+           }
+
+           .ui.label {
+               display: flex !important;
+               align-items: center;
+               justify-content: center;
+           }
+        }
+    }
+
+    .show {
+        visibility: visible;
+    }
+
+    .hidden {
+        visibility: hidden;
+    }
+
+    .element {
+        display: flex;
+    }
+}
+
+.employee__detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: rgba(24, 24, 25, 0.42);
+    
+}
+
+.employee__name {
+    color: rgba(24, 24, 25, 0.9);
+}
+
+.employee__name > span {
+    color: rgba(24, 24, 25, 0.42)
+}

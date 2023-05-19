@@ -1,0 +1,39 @@
+#message-container {
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(111.34deg, #005698 0%, #0077B6 100%);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .message {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        min-width: 40vw;
+
+        h1 {
+            font-family: Inter;
+        }
+
+        button {
+            color: #036fb0;
+            width: 11vw;
+        }
+
+        p {
+            font-size: 19px;
+            padding-top: vh;
+        }
+
+        i {
+            background: rgba(72, 202, 228, 1) !important;
+        }
+
+
+    }
+
+}

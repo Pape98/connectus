@@ -1,0 +1,84 @@
+@use "styles/colors.scss" as colors;
+
+html { height: 100%; }
+
+body {
+    box-sizing: border-box;
+    background-color: colors.$grey;
+    font-size: 14px;
+    font-family: 'Work Sans', sans-serif;
+    color: rgba(24, 24, 25, 0.9);
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+    ::-webkit-scrollbar { 
+        display: none;  /* Safari and Chrome */
+    }
+}
+
+#root {
+    height: 100%;
+}
+
+input,
+textarea { 
+    font-family: 'Work Sans', sans-serif !important;
+    font-size: 14px !important;
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator,
+input[type="date"]::-webkit-calendar-picker-indicator {
+    font-family: 'Work Sans', sans-serif;
+    filter: invert(69%) sepia(68%) saturate(442%) hue-rotate(149deg) brightness(91%) contrast(96%);
+}
+
+i {
+    color: colors.$primary;
+}
+
+.content {
+    margin-left: 19vw;
+    margin-right: 6vw;
+    margin-right: 6vw;
+    margin-top: 13vh;
+    padding-bottom: 10vh;
+    height: 100%;
+}
+
+button i {
+    color: white;
+}
+
+.ui.button {
+    background-color: colors.$primary;
+    color: white !important;
+}
+
+.segment {
+    border-radius: 8px;
+    border: 1px solid #E6E7E9;
+    padding: 25px;
+    background-color: white;
+}
+
+.home-meetings__bottom{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    font-weight: normal !important;
+}
+
+.field {
+    width: 100%;
+}
+
+.toast-custom {
+    // background : #48CAE4;
+    // color: white !important;
+
+    // path {
+    //     background: white !important;
+    // }
+}

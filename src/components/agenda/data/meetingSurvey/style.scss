@@ -1,0 +1,23 @@
+.label { 
+    background: #48cae4  !important; 
+    color: #fff !important
+}
+
+table {
+    width: 100% !important;
+}
+
+.noSurvey__container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    svg {
+        height: 200px !important;
+        width: auto;
+        padding-bottom: 30px;
+    }
+}

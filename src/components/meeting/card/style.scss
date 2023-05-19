@@ -1,0 +1,37 @@
+.meetingCard {
+    :hover {
+        cursor: pointer;
+    }
+
+    .segment {
+        padding: 0 0 0 0;
+    }
+
+    .meetingCard__title {
+        padding: 25px 15px;
+    }
+
+    .meetingCard__date {
+        padding: 7px 15px;
+        display: flex;
+        justify-content: space-between;
+        background-color: rgba(72, 202, 228, 0.02);
+        color: rgba(24, 24, 25, 0.5);
+    }  
+}
+
+.meetingCard--selected {
+
+    .segment {
+        background-color: rgba(72, 202, 228, 0.1);
+    }
+
+    .meetingCard__date {
+        background-color: white;
+        color: rgba(24, 24, 25, 0.5);
+    }
+
+    .meetingCard__title {
+        font-size: 16px;
+    }
+} 

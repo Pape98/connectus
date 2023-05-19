@@ -1,0 +1,67 @@
+.agenda {
+    padding-bottom: 5vh;
+    
+    .agenda__header i {
+        margin: 0 7px;
+    }
+
+    .header__datetime {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .employee__name {
+        color: rgba(24, 24, 25, 0.9);
+    }
+}
+
+.agenda__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+
+.agenda__container {
+    background: white;
+    border: 1px solid #E6E7E9;
+    border-radius: 8px;
+    margin-top: 3vh;
+    padding-top: 1vh;
+    padding-bottom: 3vh;
+}
+
+.agenda__recipient {
+    margin: 2vh 4vw;
+    border: 1px solid #E6E7E9;
+    border-radius: 4px;
+
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+
+    .recipient {
+         padding: 20px 20px;
+    }
+
+    .right-column {
+        padding: 25px;
+    }
+
+    .colored {
+        color: rgba(72, 202, 228, 1);
+    }
+
+    .element {
+        margin-bottom: 15px;
+    }
+}
+
+.agenda__previousNotes--empty {
+    display: flex;
+    justify-content:center;
+    flex-direction: column;
+    align-items: center;
+    height: 25vh;
+}
+
+

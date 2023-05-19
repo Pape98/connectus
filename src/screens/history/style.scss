@@ -1,0 +1,89 @@
+#history-container {
+    position: fixed;
+    top: 8vh;
+    left: 13vw;
+    height: 100%;
+    width: calc(100% - 13vw);
+    
+    #history-grid {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+    }
+
+    #noData {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+
+        svg {
+            height: 150px;
+            width: auto;
+            padding-bottom: 25px;
+        }
+    }
+
+    #employee-list-back {
+
+        display: flex; align-items: center;
+        justify-content: space-between;
+        margin-bottom: 25px;
+
+
+        > div:nth-of-type(1) {
+            display: flex;
+            align-items: center;
+
+            :hover {
+                cursor: pointer;
+            }
+        }
+
+        > div:nth-of-type(2) {
+            color: rgba(72, 202, 228, 1);
+        }
+    }
+
+    .history__dataList {
+        overflow-x: hidden;
+        overflow: scroll;
+        height: 80vh;
+        padding-bottom: 5vh;
+    }
+
+    #history__meetingsList {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        height: 100%;
+    }
+
+    .history__section {
+        height: 100vh;
+        padding: 30px;
+    }
+
+    .history__section.right-section {
+        background-color: white;
+
+        .history__header {
+            display: flex;
+            width: 100%;
+            justify-content: space-between; 
+            align-items: center;
+            padding: 1vh 4vw 0 4vw;
+
+            h3 {
+                margin: 0;
+            } 
+        }
+
+        #history__dataContainer {
+            height: 100%;
+            overflow-x: hidden;
+            overflow: scroll;
+            padding-bottom: 150px;
+        }
+    }
+}

@@ -1,0 +1,49 @@
+.home__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
+
+  svg {
+    margin: 5vh 0;
+    width: 100%;
+  }
+
+  .label {
+    background-color: #48CAE4 !important;
+  }
+
+  .home-meetings__segment {
+      width: 100% !important;
+  }
+
+  .home-meetings__segment > img {
+      width: 100%;
+      padding: 40px;
+  }
+
+  .home-meetings__segment p {
+    color: rgba(24, 24, 25, 0.42);
+  }
+
+  .reading-snippets {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      gap: 30px;
+  }
+
+  #home-segment {
+    padding: 50px;
+  }
+}
+
+
+
+
+
+@media screen and (max-width: 1366px) {
+  .home__grid {
+    grid-template-columns: 1fr;
+  }
+}

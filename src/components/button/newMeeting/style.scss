@@ -1,0 +1,22 @@
+#new-meeting-button {
+    box-shadow: 0px 16px 24px 2px rgba(0, 0, 0, 0.05), 0px 6px 30px 5px rgba(0, 0, 0, 0.04), 0px 8px 10px -5px rgba(0, 0, 0, 0.06); 
+    background-color: #48CAE4;
+    border-radius: 50%;
+    display: flex;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    right: 3vw;
+    bottom: 5vh;
+    width: 60px;
+}
+
+#new-meeting-button:hover {
+    cursor: pointer;
+}
+
+#new-meeting-button i {
+    font-size: 30px;
+    margin: 0;
+}

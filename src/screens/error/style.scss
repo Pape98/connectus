@@ -1,0 +1,31 @@
+#errorScreen {
+    width:100vw;
+    height: 100vh;
+    background: rgba(255,0,0,0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+
+    .errorScreen__container {
+        width: 40%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 75px;
+    }
+
+    p {
+        font-size: 25px;
+    }
+
+    i {
+        color: white;
+    }
+}

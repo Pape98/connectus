@@ -1,0 +1,62 @@
+const employeeActions = {
+  CREATE_EMPLOYEE: "CREATE_EMPLOYEE",
+  FETCH_EMPLOYEES: "FETCH_EMPLOYEES",
+  FETCH_EMPLOYEE: "FETCH_EMPLOYEE",
+  UPDATE_EMPLOYEE: "UPDATE_EMPLOYEE",
+};
+
+const meetingActions = {
+  CLEAR_CURRENT_MEETING: "CLEAR_CURRENT_MEETING",
+  CREATE_MEETING: "CREATE_MEETING",
+  DELETE_MEETING: "DELETE_MEETING",
+  FETCH_MEETINGS: "FETCH_MEETINGS",
+  FETCH_MEETING: "FETCH_MEETING",
+  SET_CURRENT_MEETING: "SET_CURRENT_MEETING", // The one user is currently looking at
+  UPDATE_MEETING: "UPDATE_MEETING",
+};
+
+const navigationActions = {
+  REDIRECT: "REDIRECT",
+  CLEAR_REDIRECT: "CLEAR_REDIRECT",
+  SET_REDIRECT_TEXT: "SET_REDIRECT_TEXT",
+};
+
+const noteActions = {
+  CREATE_NOTE: "CREATE_NOTE",
+  DELETE_NOTE: "DELETE_NOTE",
+  FETCH_ALL_NOTES: "FETCH_ALL_NOTES", // For a particular meeting
+  SET_MEETING_ID: "SET_MEETING_ID",
+  UPDATE_NOTE: "UPDATE_NOTE",
+};
+
+const surveyActions = {
+  CREATE_SURVEY: "CREATE_SURVEY",
+  FETCH_OLD_SURVEY: "FETCH_OLD_SURVEY",
+  FETCH_NEW_SURVEY: "FETCH_NEW_SURVEY",
+};
+
+const statusActions = {
+  CLEAR_MESSAGE: "CLEAR_MESSAGE",
+  SET_MESSAGE: "SET_MESSAGE",
+};
+
+const userActions = {
+  CLEAR_USER_PROFILE: "CLEAR_USER_PROFILE",
+  FETCH_USER_PROFILE: "FETCH_USER_PROFILE",
+  SET_ACCESS_TOKEN: "SET_ACCESS_TOKEN",
+  SET_GRAPH_TOKEN: "SET_GRAPH_TOKEN",
+  SET_IS_NEW_USER: "SET_IS_NEW_USER",
+  SET_HAS_DONE_ONBOARDING: "SET_HAS_DONE_ONBOARDING",
+};
+
+const ActionTypes = {
+  ...employeeActions,
+  ...meetingActions,
+  ...navigationActions,
+  ...noteActions,
+  ...statusActions,
+  ...surveyActions,
+  ...userActions,
+};
+
+export default ActionTypes;
