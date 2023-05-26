@@ -22,9 +22,6 @@ Install by doing the following:
   yarn start
 ```
 
-It is important to note that there is a backend component that needs to run at the same
-time for the client application to work. 
-    
 ## Authors
 
 - [@Pape98](https://www.github.com/pape98)
