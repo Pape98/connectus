@@ -17,7 +17,7 @@ for internal routing. [Microsoft Azure](https://docs.microsoft.com/en-us/azure/a
 Install by doing the following:
 
 ```bash
-  git clone git@github.com:Pape98/connectus-ui.git
+  git clone git@github.com:Pape98/connectus.git
   yarn
   yarn start
 ```
